@@ -1,7 +1,5 @@
 <template>
-  <div id="nav">
-<!--    <router-link to="/">Home</router-link> |-->
-  </div>
+  <NavBar></NavBar>
   <router-view/>
 </template>
 
@@ -27,3 +25,10 @@
   color: #42b983;
 }
 </style>
+<script>
+import NavBar from '@/components/UI/Navbar/NavBar.vue';
+
+export default {
+  components: { NavBar },
+};
+</script>
