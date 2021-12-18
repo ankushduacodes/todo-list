@@ -24,9 +24,12 @@ export default {
 </script>
 
 <style scoped>
-.nav-item {
-  margin-right: 3em;
+@media screen and (min-width: 767px){
+  .nav-item {
+    margin-right: 3em;
+  }
 }
+
 .router-link-active {
   color: white;
 }

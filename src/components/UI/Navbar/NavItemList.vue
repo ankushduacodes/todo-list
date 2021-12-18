@@ -1,11 +1,9 @@
 <template>
-  <div class="justify-content-between">
-    <div class="collapse navbar-collapse nav-item"
-         id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0 ml-auto" v-for="itemName in itemList" :key="itemName">
-        <NavItem :item-name="itemName"></NavItem>
-      </ul>
-    </div>
+  <div class="collapse navbar-collapse nav-item"
+       id="navbarSupportedContent">
+    <ul class="navbar-nav mb-2 mb-lg-0" v-for="itemName in itemList" :key="itemName">
+      <NavItem :item-name="itemName"></NavItem>
+    </ul>
   </div>
 </template>
 
@@ -25,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.navbar-nav {
-  flex-direction: row;
+.navbar-collapse {
+  margin-left: 50px
 }
 </style>

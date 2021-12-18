@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
         <img src="../../../../src/assets/img/to-do-list.png" alt="Logo"
@@ -44,8 +44,10 @@ export default {
 </script>
 
 <style scoped>
-.container-fluid {
-  margin-left: 10%;
-  margin-right: 10%;
+@media only screen and (min-width: 767px) {
+  .container-fluid {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 </style>
