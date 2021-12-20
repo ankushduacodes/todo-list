@@ -58,7 +58,16 @@ export default createStore({
       return todos.filter((todo) => !todo.done);
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    markDone({ todos }, payload) {
+      const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
+      updateTodo.done = true;
+    },
+  },
+  actions: {
+    markTodoDone({ commit }, payload) {
+      commit('markDone', payload);
+    },
+  },
   modules: {},
 });

@@ -1,21 +1,19 @@
 <template>
-  <li class="list-group-item">
-    <div class="container-md">
-      <div class="card text-white bg-dark">
-        <todo-urgency :badge-color="todo.urgency"></todo-urgency>
-        <div class="card-body" :contenteditable="contentEditable"
-             @blur="setContentEditableFalse" @dblclick="setContentEditableTrue">
-          {{ todo.item }}
-        </div>
-        <div class="close-btn">
-          <button type="button" class="btn btn-success">✔</button>
-        </div>
-        <div class="close-btn">
-          <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
-        </div>
+  <div class="container-md">
+    <div class="card text-white bg-dark">
+      <todo-urgency :badge-color="todo.urgency"></todo-urgency>
+      <div class="card-body" :contenteditable="contentEditable"
+           @blur="setContentEditableFalse" @dblclick="setContentEditableTrue">
+        {{ todo.item }}
+      </div>
+      <div class="close-btn">
+        <button type="button" class="btn btn-success" @click="markTodoDone(todo)">✔</button>
+      </div>
+      <div class="close-btn">
+        <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
       </div>
     </div>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -42,6 +40,11 @@ export default {
     setContentEditableTrue() {
       this.contentEditable = true;
     },
+    markTodoDone(todo) {
+      if (!todo.done) {
+        this.$store.dispatch('markTodoDone', { todo });
+      }
+    },
   },
 };
 </script>
@@ -67,4 +70,7 @@ export default {
   }
 }
 
+.container-md {
+  padding: 0;
+}
 </style>

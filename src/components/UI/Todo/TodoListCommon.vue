@@ -2,9 +2,11 @@
   <div class="container-md">
     <fieldset>
       <legend>{{ heading }}</legend>
-      <ul class="list-group list-group-flush" v-for="todo in getTodos" :key="todo.id">
-        <to-do-item :todo="todo"></to-do-item>
-      </ul>
+      <ol>
+        <li class="todo-list" v-for="todo in getTodos" :key="todo.id">
+          <to-do-item :todo="todo"></to-do-item>
+        </li>
+      </ol>
     </fieldset>
   </div>
 </template>
@@ -30,5 +32,15 @@ export default {
 </script>
 
 <style scoped>
+
+li {
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
 
 </style>
