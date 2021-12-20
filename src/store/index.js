@@ -10,15 +10,15 @@ export default createStore({
         urgency: 'red',
       },
       {
-        item: 'This is some text within a card boxkamscnjbdhvbnbh cjnkmbvhjnks mnvjb hvjnkmxcnjvb hjnkmdlscnvjbh',
+        item: 'This is  cjnkmbvhjnks mnvjb hvjnkmxcnjvb hjnkmdlscnvjbh',
         id: Math.floor(Math.random() * 100000) + 1000000,
-        done: false,
+        done: true,
         urgency: 'red',
       },
       {
-        item: 'This is some text within a card boxkamscnjbdhvbnbh cjnkmbvhjnks mnvjb hvjnkmxcnjvb hjnkmdlscnvjbh',
+        item: 'boxkamscnjbdhvbnbh cjnkmbvhjnks mnvjb hvjnkmxcnjvb hjnkmdlscnvjbh',
         id: Math.floor(Math.random() * 100000) + 1000000,
-        done: false,
+        done: true,
         urgency: 'yellow',
       },
       {
@@ -48,8 +48,14 @@ export default createStore({
     ],
   },
   getters: {
-    getTodos(state) {
-      return state.todos;
+    getTodos({ todos }) {
+      return todos;
+    },
+    getDoneTodos({ todos }) {
+      return todos.filter((todo) => todo.done);
+    },
+    getPendingTodos({ todos }) {
+      return todos.filter((todo) => !todo.done);
     },
   },
   mutations: {},
