@@ -23,7 +23,9 @@ export default {
 </script>
 
 <style scoped>
-.navbar-collapse {
-  margin-left: 50px
+@media screen and (min-width: 767px){
+  .navbar-collapse {
+    margin-left: 50px
+  }
 }
 </style>
