@@ -1,5 +1,5 @@
 <template>
-  <todo-list-common :get-todos="getPendingTodos" heading="Pending"></todo-list-common>
+  <todo-list-common :get-todos="getDoneTodos" heading="Done"></todo-list-common>
 </template>
 
 <script>
@@ -7,10 +7,12 @@ import { mapGetters } from 'vuex';
 import TodoListCommon from '@/components/UI/Todo/TodoListCommon.vue';
 
 export default {
-  name: 'PendingTodos',
+  name: 'DoneTodos',
   components: { TodoListCommon },
   computed: {
-    ...mapGetters(['getPendingTodos']),
+    ...mapGetters([
+      'getDoneTodos',
+    ]),
   },
 };
 </script>
