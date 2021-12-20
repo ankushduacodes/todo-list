@@ -9,12 +9,12 @@
             <label for="floatingInputGrid">Todo: </label>
           </div>
         </div>
-        <div class="col-md">
+        <div class="col-sm-3">
           <div class="form-floating">
             <select class="form-select" id="floatingSelectGrid">
-              <option value="1"><todo-tag badge-color="red"></todo-tag> Important</option>
-              <option value="2"><todo-tag badge-color="yellow"></todo-tag> So so...</option>
-              <option value="3"><todo-tag badge-color="green"></todo-tag> Chill</option>
+              <option value="1"><todo-urgency badge-color="red"></todo-urgency> Important</option>
+              <option value="2"><todo-urgency badge-color="yellow"></todo-urgency> So so...</option>
+              <option value="3"><todo-urgency badge-color="green"></todo-urgency> Chill</option>
             </select>
             <label for="floatingSelectGrid">Select Urgency</label>
           </div>
@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import TodoTag from '@/components/UI/Todo/TodoTag.vue';
+import TodoUrgency from '@/components/UI/Todo/TodoUrgency.vue';
 
 export default {
   name: 'AddNewTodoItem',
-  components: { TodoTag },
+  components: { TodoUrgency },
 };
 </script>
 
