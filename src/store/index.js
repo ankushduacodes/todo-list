@@ -12,13 +12,13 @@ export default createStore({
       {
         item: 'This is  cjnkmbvhjnks mnvjb hvjnkmxcnjvb hjnkmdlscnvjbh',
         id: Math.floor(Math.random() * 100000) + 1000000,
-        done: true,
+        done: false,
         urgency: 'red',
       },
       {
         item: 'boxkamscnjbdhvbnbh cjnkmbvhjnks mnvjb hvjnkmxcnjvb hjnkmdlscnvjbh',
         id: Math.floor(Math.random() * 100000) + 1000000,
-        done: true,
+        done: false,
         urgency: 'yellow',
       },
       {
@@ -63,10 +63,16 @@ export default createStore({
       const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
       updateTodo.done = true;
     },
+    markUndone() {
+
+    },
   },
   actions: {
     markTodoDone({ commit }, payload) {
       commit('markDone', payload);
+    },
+    markTodoUndone() {
+
     },
   },
   modules: {},

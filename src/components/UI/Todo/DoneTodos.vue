@@ -1,5 +1,7 @@
 <template>
-  <todo-list-common :get-todos="getDoneTodos" heading="Done"></todo-list-common>
+  <template v-if="getDoneTodos.length">
+    <todo-list-common :get-todos="getDoneTodos" heading="Done"></todo-list-common>
+  </template>
 </template>
 
 <script>

@@ -6,9 +6,8 @@
            @blur="setContentEditableFalse" @dblclick="setContentEditableTrue">
         {{ todo.item }}
       </div>
-      <div class="close-btn">
-        <button type="button" class="btn btn-success" @click="markTodoDone(todo)">✔</button>
-      </div>
+      <action-button @clicked="performClickAction(todo)"
+                     :button-content="todo.done? '↩' : '✔'"></action-button>
       <div class="close-btn">
         <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
       </div>
@@ -18,10 +17,14 @@
 
 <script>
 import TodoUrgency from '@/components/UI/Todo/TodoUrgency.vue';
+import ActionButton from '@/components/UI/Todo/ActionButton.vue';
 
 export default {
   name: 'ToDoItem',
-  components: { TodoUrgency },
+  components: {
+    ActionButton,
+    TodoUrgency,
+  },
   props: {
     todo: {
       type: Object,
@@ -41,8 +44,16 @@ export default {
       this.contentEditable = true;
     },
     markTodoDone(todo) {
-      if (!todo.done) {
-        this.$store.dispatch('markTodoDone', { todo });
+      this.$store.dispatch('markTodoDone', { todo });
+    },
+    markTodoUndone(todo) {
+      this.$store.dispatch('markTodoUndone', { todo });
+    },
+    performClickAction(todo) {
+      if (todo.done) {
+        this.markTodoUndone(todo);
+      } else {
+        this.markTodoDone(todo);
       }
     },
   },
