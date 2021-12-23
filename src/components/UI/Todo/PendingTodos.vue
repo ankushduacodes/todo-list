@@ -1,6 +1,6 @@
 <template>
-  <template v-if="getPendingTodos.length">
-    <todo-list-common :get-todos="getPendingTodos" heading="Pending"></todo-list-common>
+  <template v-if="getPending.length">
+    <todo-list-common :get-todos="getPending" heading="Pending"></todo-list-common>
   </template>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'PendingTodos',
   components: { TodoListCommon },
   computed: {
-    ...mapGetters(['getPendingTodos']),
+    ...mapGetters({ getPending: 'todos/getPendingTodos' }),
   },
 };
 </script>

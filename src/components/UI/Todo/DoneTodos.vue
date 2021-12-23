@@ -1,6 +1,6 @@
 <template>
-  <template v-if="getDoneTodos.length">
-    <todo-list-common :get-todos="getDoneTodos" heading="Done"></todo-list-common>
+  <template v-if="getDone.length">
+    <todo-list-common :get-todos="getDone" heading="Done"></todo-list-common>
   </template>
 </template>
 
@@ -12,9 +12,9 @@ export default {
   name: 'DoneTodos',
   components: { TodoListCommon },
   computed: {
-    ...mapGetters([
-      'getDoneTodos',
-    ]),
+    ...mapGetters({
+      getDone: 'todos/getDoneTodos',
+    }),
   },
 };
 </script>

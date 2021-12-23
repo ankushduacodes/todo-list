@@ -102,7 +102,7 @@ export default {
         done: false,
         urgency: this.selectedUrgency,
       };
-      this.$store.dispatch('addNewTodo', { newTodo });
+      this.$store.dispatch('todos/addNewTodo', { newTodo });
       this.resetInput();
     },
   },

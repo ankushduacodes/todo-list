@@ -45,10 +45,10 @@ export default {
       this.contentEditable = true;
     },
     markTodoDone(todo) {
-      this.$store.dispatch('markTodoDone', { todo });
+      this.$store.dispatch('todos/markTodoDone', { todo });
     },
     markTodoUndone(todo) {
-      this.$store.dispatch('markTodoUndone', { todo });
+      this.$store.dispatch('todos/markTodoUndone', { todo });
     },
     performClickAction(todo) {
       if (todo.done) {
@@ -58,7 +58,7 @@ export default {
       }
     },
     deleteTodo(todo) {
-      this.$store.dispatch('deleteTodo', { todo });
+      this.$store.dispatch('todos/deleteTodo', { todo });
     },
   },
 };
