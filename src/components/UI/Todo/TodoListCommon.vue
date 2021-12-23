@@ -4,7 +4,7 @@
       <legend>{{ heading }}</legend>
       <ol>
         <li class="todo-list" v-for="todo in getTodos" :key="todo.id">
-          <to-do-item :todo="todo"></to-do-item>
+          <to-do-item :classes="classes" :todo="todo"></to-do-item>
         </li>
       </ol>
     </fieldset>
@@ -25,6 +25,9 @@ export default {
     heading: {
       type: String,
       required: true,
+    },
+    classes: {
+      type: String,
     },
   },
   components: { ToDoItem },

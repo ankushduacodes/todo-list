@@ -2,14 +2,15 @@
   <div class="container-md">
     <div class="card text-white bg-dark">
       <todo-urgency :badge-color="todo.urgency"></todo-urgency>
-      <div class="card-body" :contenteditable="contentEditable"
+      <div :class="'card-body ' + classes" ref="todoText" :contenteditable="contentEditable"
            @blur="setContentEditableFalse" @dblclick="setContentEditableTrue">
         {{ todo.item }}
       </div>
       <action-button @clicked="performClickAction(todo)"
                      :button-content="todo.done? '↩' : '✔'"></action-button>
       <div class="close-btn">
-        <button type="button" @click="deleteTodo(todo)" class="btn-close btn-close-white"
+        <button type="button" @click="deleteTodo(todo)" aria-describedby="Delete Todo"
+                class="btn-close btn-close-white"
                 aria-label="Close"></button>
       </div>
     </div>
@@ -31,6 +32,9 @@ export default {
       type: Object,
       required: true,
     },
+    classes: {
+      type: String,
+    },
   },
   data() {
     return {
@@ -42,6 +46,9 @@ export default {
       this.contentEditable = false;
     },
     setContentEditableTrue() {
+      if (this.todo.done) {
+        return;
+      }
       this.contentEditable = true;
     },
     markTodoDone(todo) {
@@ -53,8 +60,11 @@ export default {
     performClickAction(todo) {
       if (todo.done) {
         this.markTodoUndone(todo);
+        this.$refs.todoText.classList.remove('line-strike');
       } else {
         this.markTodoDone(todo);
+        console.log(this.$refs.todoText);
+        this.$refs.todoText.classList.toggle('line-strike');
       }
     },
     deleteTodo(todo) {
@@ -87,5 +97,9 @@ export default {
 
 .container-md {
   padding: 0;
+}
+
+.line-strike {
+  text-decoration: line-through;
 }
 </style>

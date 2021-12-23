@@ -1,6 +1,7 @@
 <template>
   <template v-if="getDone.length">
-    <todo-list-common :get-todos="getDone" heading="Done"></todo-list-common>
+    <todo-list-common :classes="'line-strike'" :get-todos="getDone"
+                      heading="Done"></todo-list-common>
   </template>
 </template>
 
