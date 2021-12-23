@@ -9,7 +9,8 @@
       <action-button @clicked="performClickAction(todo)"
                      :button-content="todo.done? '↩' : '✔'"></action-button>
       <div class="close-btn">
-        <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+        <button type="button" @click="deleteTodo(todo)" class="btn-close btn-close-white"
+                aria-label="Close"></button>
       </div>
     </div>
   </div>
@@ -55,6 +56,9 @@ export default {
       } else {
         this.markTodoDone(todo);
       }
+    },
+    deleteTodo(todo) {
+      this.$store.dispatch('deleteTodo', { todo });
     },
   },
 };

@@ -67,6 +67,11 @@ export default createStore({
       const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
       updateTodo.done = false;
     },
+    deleteTodo({ todos }, payload) {
+      const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
+      const updatedTodoIdx = todos.indexOf(updateTodo);
+      todos.splice(updatedTodoIdx, 1);
+    },
   },
   actions: {
     markTodoDone({ commit }, payload) {
@@ -74,6 +79,9 @@ export default createStore({
     },
     markTodoUndone({ commit }, payload) {
       commit('markUndone', payload);
+    },
+    deleteTodo({ commit }, payload) {
+      commit('deleteTodo', payload);
     },
   },
   modules: {},
