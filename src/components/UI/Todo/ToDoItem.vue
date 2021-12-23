@@ -60,11 +60,8 @@ export default {
     performClickAction(todo) {
       if (todo.done) {
         this.markTodoUndone(todo);
-        this.$refs.todoText.classList.remove('line-strike');
       } else {
         this.markTodoDone(todo);
-        console.log(this.$refs.todoText);
-        this.$refs.todoText.classList.toggle('line-strike');
       }
     },
     deleteTodo(todo) {
