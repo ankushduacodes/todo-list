@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
         <img src="../../../../src/assets/img/to-do-list.png" alt="Logo"
@@ -36,6 +36,14 @@ export default {
         {
           name: 'Contact Me',
           to: '/contact',
+        },
+        {
+          name: 'Login',
+          to: '/login',
+        },
+        {
+          name: 'Register',
+          to: '/register',
         },
       ],
     };

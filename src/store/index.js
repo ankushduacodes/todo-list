@@ -72,6 +72,9 @@ export default createStore({
       const updatedTodoIdx = todos.indexOf(updateTodo);
       todos.splice(updatedTodoIdx, 1);
     },
+    addTodo({ todos }, payload) {
+      todos.push(payload.newTodo);
+    },
   },
   actions: {
     markTodoDone({ commit }, payload) {
@@ -82,6 +85,9 @@ export default createStore({
     },
     deleteTodo({ commit }, payload) {
       commit('deleteTodo', payload);
+    },
+    addNewTodo({ commit }, payload) {
+      commit('addTodo', payload);
     },
   },
   modules: {},
