@@ -63,16 +63,17 @@ export default createStore({
       const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
       updateTodo.done = true;
     },
-    markUndone() {
-
+    markUndone({ todos }, payload) {
+      const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
+      updateTodo.done = false;
     },
   },
   actions: {
     markTodoDone({ commit }, payload) {
       commit('markDone', payload);
     },
-    markTodoUndone() {
-
+    markTodoUndone({ commit }, payload) {
+      commit('markUndone', payload);
     },
   },
   modules: {},
