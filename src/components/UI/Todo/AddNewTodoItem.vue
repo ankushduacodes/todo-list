@@ -130,14 +130,4 @@ export default {
   margin-top: 1.5em;
 }
 
-.todo-err {
-  margin-left: 0;
-  width: 156px;
-}
-
-.select-err {
-  margin-left: 0;
-  width: 180px;
-}
-
 </style>
