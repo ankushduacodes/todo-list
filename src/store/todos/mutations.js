@@ -1,4 +1,7 @@
 export default {
+  setPrevTodos({ todos }, payload) {
+    todos.push(...payload.todos);
+  },
   markDone({ todos }, payload) {
     const updateTodo = todos.find((todo) => payload.todo.id === todo.id);
     updateTodo.done = true;

@@ -30,5 +30,8 @@ import NavBar from '@/components/UI/Navbar/NavBar.vue';
 
 export default {
   components: { NavBar },
+  mounted() {
+    this.$store.dispatch('todos/fetchPrevTodos');
+  },
 };
 </script>
