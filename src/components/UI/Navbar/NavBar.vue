@@ -37,14 +37,6 @@ export default {
           name: 'Contact Me',
           to: '/contact',
         },
-        {
-          name: 'Login',
-          to: '/login',
-        },
-        {
-          name: 'Register',
-          to: '/register',
-        },
       ],
     };
   },
